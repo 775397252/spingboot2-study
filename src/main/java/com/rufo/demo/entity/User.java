@@ -1,38 +1,62 @@
 package com.rufo.demo.entity;
 
-public class User {
 
-    private Long ID;
-    private String user_login;
-    private String user_pass;
+import java.io.Serializable;
 
-    public User(Long ID, String user_login, String user_pass) {
-        this.ID = ID;
-        this.user_login = user_login;
-        this.user_pass = user_pass;
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 8655851615465363473L;
+
+    private Long id;
+    private String username;
+    private String password;
+
+    public User() {
     }
 
-    public Long getID() {
-        return ID;
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public User(Long id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
     }
 
-    public String getUser_login() {
-        return user_login;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 
-    public void setUser_login(String user_login) {
-        this.user_login = user_login;
+    public Long getId() {
+        return id;
     }
 
-    public String getUser_pass() {
-        return user_pass;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setUser_pass(String user_pass) {
-        this.user_pass = user_pass;
+    public String getUsername() {
+        return username;
     }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
 }

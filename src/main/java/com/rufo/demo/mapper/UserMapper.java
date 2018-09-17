@@ -6,17 +6,27 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 
+import java.util.List;
+
+
 @Mapper
 public interface UserMapper {
     /**
      * 根据用户名查询用户结果集
      *
-     * @param user_login 用户名
+     * @param username 用户名
      * @return 查询结果
      */
-    @Select("SELECT ID,user_login,user_pass FROM wp_users WHERE user_login = #{user_login} limit 1")
-    User findByUsername(@Param("user_login") String user_login);
+    @Select("SELECT * FROM t_user WHERE username = #{username}")
+    List<User> findByUsername(@Param("username") String username);
 
+    /**
+     * 根据用户名统计（TODO 假设它是一个很复杂的SQL）
+     *
+     * @param username 用户名
+     * @return 统计结果
+     */
+    int countByUsername(String username);
 
     /**
      * 保存用户信息
