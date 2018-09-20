@@ -20,6 +20,9 @@ public interface UserMapper {
     @Select("SELECT * FROM t_user WHERE username = #{username}")
     List<User> findByUsername(@Param("username") String username);
 
+    @Select("SELECT * FROM t_user")
+    List<User> findUser();
+
     /**
      * 根据用户名统计（TODO 假设它是一个很复杂的SQL）
      *
